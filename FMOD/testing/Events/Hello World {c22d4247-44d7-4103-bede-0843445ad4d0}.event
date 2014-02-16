@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects managedObjectVersionString="Studio.1.DeveloperPreview.0">
+    <object class="Event" id="{c22d4247-44d7-4103-bede-0843445ad4d0}">
+        <property name="name">
+            <value>Hello World</value>
+        </property>
+        <property name="note"/>
+        <relationship name="folder">
+            <destination>{f009f2eb-2478-4536-b108-1ad846fba78a}</destination>
+        </relationship>
+        <relationship name="mixer">
+            <destination>{c65cfca2-49c4-4bfd-84d5-82c3d21f98d6}</destination>
+        </relationship>
+        <relationship name="masterTrack">
+            <destination>{7eba958e-11b3-4cc1-a00e-ddf5ab565657}</destination>
+        </relationship>
+        <relationship name="mixerInput">
+            <destination>{f3756462-a428-46a4-bf0c-0c991b7154af}</destination>
+        </relationship>
+        <relationship name="automatableProperties">
+            <destination>{bc4c0d68-7f79-4855-a6ea-a27a2466f8e8}</destination>
+        </relationship>
+        <relationship name="markerTracks">
+            <destination>{5fca4c7d-6770-4e47-b159-93d5d96e3872}</destination>
+        </relationship>
+        <relationship name="groupTracks">
+            <destination>{c24ed898-c318-4ac3-adf1-bde86dccea77}</destination>
+        </relationship>
+        <relationship name="timeline">
+            <destination>{88f2d054-2656-4f36-bf8c-60b29ce41228}</destination>
+        </relationship>
+    </object>
+    <object class="EventMixer" id="{c65cfca2-49c4-4bfd-84d5-82c3d21f98d6}">
+        <relationship name="masterBus">
+            <destination>{3bb472c2-ce46-44a4-bdde-c2a8d6b8bb0b}</destination>
+        </relationship>
+    </object>
+    <object class="MasterTrack" id="{7eba958e-11b3-4cc1-a00e-ddf5ab565657}">
+        <property name="streaming">
+            <value>false</value>
+        </property>
+        <relationship name="mixerGroup">
+            <destination>{3bb472c2-ce46-44a4-bdde-c2a8d6b8bb0b}</destination>
+        </relationship>
+    </object>
+    <object class="EventAutomatableProperties" id="{bc4c0d68-7f79-4855-a6ea-a27a2466f8e8}">
+        <property name="maxVoices">
+            <value>65</value>
+        </property>
+        <property name="voiceStealing">
+            <value>true</value>
+        </property>
+        <property name="priority">
+            <value>2</value>
+        </property>
+        <property name="noLookahead">
+            <value>false</value>
+        </property>
+    </object>
+    <object class="MarkerTrack" id="{5fca4c7d-6770-4e47-b159-93d5d96e3872}"/>
+    <object class="GroupTrack" id="{c24ed898-c318-4ac3-adf1-bde86dccea77}">
+        <property name="streaming">
+            <value>false</value>
+        </property>
+        <relationship name="modules">
+            <destination>{b0f09db0-e125-471d-b4d4-49d864f5bf56}</destination>
+        </relationship>
+        <relationship name="mixerGroup">
+            <destination>{46e48edb-5492-40d5-8037-6dc14b4ebd4a}</destination>
+        </relationship>
+    </object>
+    <object class="Timeline" id="{88f2d054-2656-4f36-bf8c-60b29ce41228}">
+        <property name="name">
+            <value>Timeline</value>
+        </property>
+        <relationship name="modules">
+            <destination>{b0f09db0-e125-471d-b4d4-49d864f5bf56}</destination>
+        </relationship>
+    </object>
+    <object class="EventMixerMaster" id="{3bb472c2-ce46-44a4-bdde-c2a8d6b8bb0b}">
+        <property name="volume">
+            <value>0</value>
+        </property>
+        <property name="pitch">
+            <value>0</value>
+        </property>
+        <property name="name">
+            <value>Master</value>
+        </property>
+        <relationship name="effectChain">
+            <destination>{f67840c2-48d9-49dd-9053-deacb733a91d}</destination>
+        </relationship>
+        <relationship name="panner">
+            <destination>{1d938366-3709-400d-a03e-6c5b14f8b5f4}</destination>
+        </relationship>
+        <relationship name="mixer">
+            <destination>{c65cfca2-49c4-4bfd-84d5-82c3d21f98d6}</destination>
+        </relationship>
+    </object>
+    <object class="SingleSound" id="{b0f09db0-e125-471d-b4d4-49d864f5bf56}">
+        <property name="start">
+            <value>0</value>
+        </property>
+        <property name="length">
+            <value>106.344</value>
+        </property>
+        <property name="triggerProbabilityEnabled">
+            <value>true</value>
+        </property>
+        <property name="triggerProbability">
+            <value>100</value>
+        </property>
+        <property name="delayType">
+            <value>1</value>
+        </property>
+        <property name="minimumTimeDelay">
+            <value>0</value>
+        </property>
+        <property name="maximumTimeDelay">
+            <value>0</value>
+        </property>
+        <property name="quantizationInterval">
+            <value>0</value>
+        </property>
+        <property name="startOffset">
+            <value>0</value>
+        </property>
+        <property name="color">
+            <value>Blue</value>
+        </property>
+        <property name="name"/>
+        <property name="volume">
+            <value>0</value>
+        </property>
+        <property name="pitch">
+            <value>0</value>
+        </property>
+        <property name="looping">
+            <value>false</value>
+        </property>
+        <property name="loadingMode">
+            <value>0</value>
+        </property>
+        <relationship name="audioFile">
+            <destination>{97fd9954-c907-42da-83b4-ba85d46f65c1}</destination>
+        </relationship>
+    </object>
+    <object class="EventMixerGroup" id="{46e48edb-5492-40d5-8037-6dc14b4ebd4a}">
+        <property name="volume">
+            <value>0</value>
+        </property>
+        <property name="pitch">
+            <value>0</value>
+        </property>
+        <property name="name">
+            <value>Audio 1</value>
+        </property>
+        <relationship name="effectChain">
+            <destination>{8d9feb26-180b-4dc3-9e7a-c22ab49a33db}</destination>
+        </relationship>
+        <relationship name="panner">
+            <destination>{63d5227d-3bfa-4f29-8b14-aa70845bc9bf}</destination>
+        </relationship>
+        <relationship name="output">
+            <destination>{3bb472c2-ce46-44a4-bdde-c2a8d6b8bb0b}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusEffectChain" id="{f67840c2-48d9-49dd-9053-deacb733a91d}">
+        <property name="bypass"/>
+        <relationship name="effects">
+            <destination>{7cc7634b-0817-438e-bcf5-4d2c55b16bc3}</destination>
+            <destination>{3ea07db1-04ae-4d2b-9275-809643efdec1}</destination>
+            <destination>{d0fdcf0c-52b0-4ef2-8cf0-8ec8f524d683}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusPanner" id="{1d938366-3709-400d-a03e-6c5b14f8b5f4}">
+        <property name="bypass"/>
+        <property name="stereoPan">
+            <value>0</value>
+        </property>
+        <property name="stereoLeftPan">
+            <value>0</value>
+        </property>
+        <property name="stereoRightPan">
+            <value>0</value>
+        </property>
+        <property name="surroundPanDirection">
+            <value>0</value>
+        </property>
+        <property name="surroundPanExtent">
+            <value>360</value>
+        </property>
+        <property name="surroundLFELevel">
+            <value>0</value>
+        </property>
+        <property name="stereoToSurroundPanMode">
+            <value>1</value>
+        </property>
+        <property name="surroundStereoSeparation">
+            <value>60</value>
+        </property>
+        <property name="surroundStereoAxis">
+            <value>0</value>
+        </property>
+        <property name="overridingOutputFormat">
+            <value>0</value>
+        </property>
+        <property name="outputFormatOverridden">
+            <value>false</value>
+        </property>
+        <property name="enabledSurroundSpeakers">
+            <value>255</value>
+        </property>
+        <property name="LFEUpmixEnabled">
+            <value>false</value>
+        </property>
+    </object>
+    <object class="MixerBusEffectChain" id="{8d9feb26-180b-4dc3-9e7a-c22ab49a33db}">
+        <property name="bypass"/>
+        <relationship name="effects">
+            <destination>{a99946fa-61ae-4093-b816-11521f760f49}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusPanner" id="{63d5227d-3bfa-4f29-8b14-aa70845bc9bf}">
+        <property name="bypass"/>
+        <property name="stereoPan">
+            <value>0</value>
+        </property>
+        <property name="stereoLeftPan">
+            <value>0</value>
+        </property>
+        <property name="stereoRightPan">
+            <value>0</value>
+        </property>
+        <property name="surroundPanDirection">
+            <value>0</value>
+        </property>
+        <property name="surroundPanExtent">
+            <value>360</value>
+        </property>
+        <property name="surroundLFELevel">
+            <value>0</value>
+        </property>
+        <property name="stereoToSurroundPanMode">
+            <value>1</value>
+        </property>
+        <property name="surroundStereoSeparation">
+            <value>60</value>
+        </property>
+        <property name="surroundStereoAxis">
+            <value>0</value>
+        </property>
+        <property name="overridingOutputFormat">
+            <value>0</value>
+        </property>
+        <property name="outputFormatOverridden">
+            <value>false</value>
+        </property>
+        <property name="enabledSurroundSpeakers">
+            <value>255</value>
+        </property>
+        <property name="LFEUpmixEnabled">
+            <value>false</value>
+        </property>
+    </object>
+    <object class="MixerBusFader" id="{7cc7634b-0817-438e-bcf5-4d2c55b16bc3}">
+        <property name="bypass"/>
+    </object>
+    <object class="SpatialiserEffect" id="{3ea07db1-04ae-4d2b-9275-809643efdec1}">
+        <property name="bypass"/>
+        <property name="distanceRolloffType">
+            <value>0</value>
+        </property>
+        <property name="minimumDistance">
+            <value>1</value>
+        </property>
+        <property name="maximumDistance">
+            <value>20</value>
+        </property>
+        <property name="extentMode">
+            <value>0</value>
+        </property>
+        <property name="soundSize">
+            <value>0</value>
+        </property>
+        <property name="minimumExtent">
+            <value>0</value>
+        </property>
+        <property name="occlusionEnabled">
+            <value>true</value>
+        </property>
+        <property name="dopplerMultiplier">
+            <value>100</value>
+        </property>
+        <property name="panBlend">
+            <value>1</value>
+        </property>
+        <property name="userPanDirection">
+            <value>0</value>
+        </property>
+        <property name="userPanExtent">
+            <value>360</value>
+        </property>
+        <property name="userLFELevel">
+            <value>0</value>
+        </property>
+        <property name="stereoToSurroundUserPanMode">
+            <value>1</value>
+        </property>
+        <property name="userStereoSeparation">
+            <value>60</value>
+        </property>
+        <property name="userStereoAxis">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="MixerSend" id="{d0fdcf0c-52b0-4ef2-8cf0-8ec8f524d683}">
+        <property name="bypass"/>
+        <property name="level">
+            <value>-80</value>
+        </property>
+        <relationship name="return">
+            <destination>{401347f4-47ce-4c41-a316-3dbd62e10e4e}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusFader" id="{a99946fa-61ae-4093-b816-11521f760f49}">
+        <property name="bypass"/>
+    </object>
+</objects>

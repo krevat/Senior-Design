@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects managedObjectVersionString="Studio.1.DeveloperPreview.0">
+    <object class="AudioFile" id="{97fd9954-c907-42da-83b4-ba85d46f65c1}">
+        <property name="name"/>
+        <property name="frequencyInKHz">
+            <value>44.1</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>106.344</value>
+        </property>
+        <property name="lastModifiedDate">
+            <value>0</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/Dance Of The Sugar Plum Fairies {fe359d15-1ee3-499d-a6f4-6a7f8a219f48}.mp3</value>
+        </property>
+        <relationship name="container">
+            <destination>{36a2a17f-f1bd-48cf-b625-a0ff185f0e42}</destination>
+        </relationship>
+    </object>
+</objects>
