@@ -1,0 +1,27 @@
+﻿Build started 2/26/2014 1:20:19 AM.
+     1>Project "C:\Users\rina\Documents\Visual Studio 2010\Projects\playstream\playstream.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Win32\Debug\playstream.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D DEBUG /D WIN32 /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Win32\Debug" /Fd"Win32\Debug" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>main.cpp(39): warning C4101: 'defreq' : unreferenced local variable
+     1>main.cpp(37): warning C4101: 'stream1' : unreferenced local variable
+     1>main.cpp(38): warning C4101: 'pitch' : unreferenced local variable
+     1>main.cpp(39): warning C4101: 'spfreq' : unreferenced local variable
+     1>main.cpp(39): warning C4101: 'pit' : unreferenced local variable
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"playstream.exe" /INCREMENTAL:NO /NOLOGO fmodex_vc.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Win32\Debug\playstream.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"Win32\Debug\playstream.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\rina\Documents\Visual Studio 2010\Projects\playstream\Debug\playstream.lib" /CLRTHREADATTRIBUTE:NONE Win32\Debug
+         playstream.vcxproj -> C:\Users\rina\Documents\Visual Studio 2010\Projects\playstream\playstream.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"playstream.exe;#1" /manifest Win32\Debug\playstream.exe.intermediate.manifest
+       CopyFilesToOutputDirectory:
+         Copying file from "Win32\Debug\playstream.pdb" to "C:\Users\rina\Documents\Visual Studio 2010\Projects\playstream\Debug\playstream.pdb".
+       FinalizeBuildStatus:
+         Deleting file "Win32\Debug\playstream.unsuccessfulbuild".
+         Touching "Win32\Debug\playstream.lastbuildstate".
+     1>Done Building Project "C:\Users\rina\Documents\Visual Studio 2010\Projects\playstream\playstream.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.78
