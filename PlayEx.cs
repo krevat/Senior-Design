@@ -12,12 +12,21 @@ using System.Collections;
 
 public class PlayEx : MonoBehaviour {
 	public KinectModelControllerV2 controller;
+	public color_change color_controller;
+
+	float r = 0; float g = 0; float b = 0; float newalpha = 0;
 	float handdistance;
-	float musicspeed = 0;
+	float musicspeed = 0f;
+	float musicvolume = 0f;
+	float newvolume = 0f;
+	float currentalpha = 0.5f;
 	Vector3 rightHandPos;
 	Vector3 leftHandPos;
-/*	Vector3 rightHandPrev;
-	Vector3 leftHandPrev;*/
+	public GameObject theparticles;
+	public GameObject theparticles2;
+	public GameObject theplane;
+	Vector3 rightHandPrev;
+	Vector3 leftHandPrev;
 
 		private FMOD.System     system  = null;
         private FMOD.Sound      sound1  = null, sound2 = null, sound3 = null;
@@ -33,8 +42,20 @@ public class PlayEx : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// initialize kinect shiz
+		theplane = GameObject.Find("ThePlane");
+		theparticles = GameObject.Find ("main-emitter");
+		theparticles2 = GameObject.Find ("main-emitter2");
 		controller = GetComponent<KinectModelControllerV2> ();
+		color_controller = theplane.GetComponent<color_change> ();
+		theparticles.particleSystem.Pause ();
+		theparticles2.particleSystem.Pause ();
+		Debug.Log("colorcontroller g" + color_controller.g); 
 		handdistance = 3.5f;//rightHandPos.x + leftHandPos.x;
+		//r = 0.5f;
+		//g = 0.46f;
+		//b = 0.0092f;
+		r = 0.0f; g = 0.0f; b = 0.0f;
+		newalpha = 0.5f;
 
 		//
 
@@ -147,8 +168,11 @@ public class PlayEx : MonoBehaviour {
 						result = system.playSound (FMOD.CHANNELINDEX.FREE, sound1, false, ref channel);
 						ERRCHECK (result);
 						set_volume (channel, -0.4f);
-						soundPlayed = true;
-						//end rina zone
+						channel.getVolume(ref musicvolume);
+						soundPlayed = true; 
+						theparticles.particleSystem.Play ();
+						theparticles2.particleSystem.Play ();
+			//end rina zone
 	//	}
 	} else if (Input.GetKeyDown ("2")) {
 						result = system.playSound (FMOD.CHANNELINDEX.FREE, sound2, false, ref channel);
@@ -239,13 +263,74 @@ public class PlayEx : MonoBehaviour {
 
 
 		// calculate distance between hands
-		float newspeed = ((2f/3.5f)*(Mathf.Abs(controller.Hand_Left.transform.position.x)+Mathf.Abs(controller.Hand_Right.transform.position.x))) + musicspeed - 1f;
-		sound1.setMusicSpeed (newspeed);
+		if (controller != null) {
+				//float newspeed = ((2f / 3.5f) * (Mathf.Abs (controller.Hand_Left.transform.position.x) + Mathf.Abs (controller.Hand_Right.transform.position.x))) + musicspeed - 1f;
+				//sound1.setMusicSpeed (newspeed);
+			if (channel != null){			
 
+				newvolume = ((2f / 0.6f) * (Mathf.Abs (controller.Hand_Left.transform.position.y + controller.Hand_Right.transform.position.y))) + musicvolume - 1f;
+				channel.setVolume (newvolume);
 
+				//Debug.Log("VOLUME " + newvolume);
+			}
+						//Debug.Log ("current y of hand is" + controller.Hand_Left.transform.position.y);
+			newalpha = newvolume/10.0f;//(controller.Hand_Left.transform.position.y - 0.19f)/(3.21f-0.19f);
+			if (newalpha > 1) {
+				newalpha = 1;
+			}
+			if (newalpha < 0) {
+				newalpha = 0;
+			}
+			//Debug.Log("new alpha is " + newalpha);
+			//this changes the alpha channel depending on how high or low the left hand is
+			//theplane.renderer.material.color = new Color(theplane.renderer.material.color.r, theplane.renderer.material.color.g, theplane.renderer.material.color.b, newalpha);
+
+			theparticles.particleSystem.startSpeed = newalpha*30.0f;
+			theparticles2.particleSystem.startSpeed = newalpha*30.0f;
+			//Debug.Log(newalpha);
+			//theplane.renderer.material.color = new Color(r,g,b,newalpha);
+			//Debug.Log("speed of right hand " + controller.Hand_Right.rigidbody.velocity);
 		
+		
+		}
+
+		if (controller != null) {
+			rightHandPos = controller.Hand_Right.transform.position;
+			Vector3 velocity = (rightHandPos - rightHandPrev) / Time.deltaTime;
+			float speed = velocity.magnitude;
+			if (speed > 10) {
+				speed = 10;
+			}
+			if (speed < 0) {
+				speed = 0;
+			}
+		//Debug.Log ("speed is " + speed);
+
+			//float newspeed = ((2f / 3.5f) * (Mathf.Abs (controller.Hand_Left.transform.position.x) + Mathf.Abs (controller.Hand_Right.transform.position.x))) + musicspeed - 1f;
+			sound1.setMusicSpeed (speed/4.5f);
+
+			//sound1.getMusicSpeed(ref musicspeed);
+			//Debug.Log("speed is" + speed);
+			//float deltat = speed/10.0f;
+
+			//this was my attempt to interpolate the color - tis a disaster
+			/*System.Math.Round(speed,1);
+
+			r = (1 - speed/10f) * color_controller.blue.r + speed * color_controller.yellow.r;
+			g = (1 - speed/10f) * color_controller.blue.g + speed * color_controller.yellow.g;
+			b = (1 - speed/10f) * color_controller.blue.b + speed * color_controller.yellow.b;
+			if ( r < 0 || g < 0 || b > 1){
+				r = 0; g = 0; b = 1;
+			}
+			theplane.renderer.material.color = new Color(r,g,b,newalpha);
+*/
+		}
+
+
+		rightHandPrev = rightHandPos;
 		// end rina zone
-	}
+
+	} // end Update()
 	
 	void OnDisable() {
 		//cleanup routine here
@@ -288,4 +373,6 @@ public class PlayEx : MonoBehaviour {
             }
         }
 }
+
+
 
